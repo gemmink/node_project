@@ -13,7 +13,7 @@ function delete_sleeptime(sleeptime_id)
     DELETE FROM sleep WHERE id=${sleeptime_id};
     `);
 
-};
+}
 
 
 

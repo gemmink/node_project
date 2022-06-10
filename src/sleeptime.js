@@ -59,7 +59,7 @@ function to_sleeptime_array(db_query) {
         sleep_time_arr.push(sleep_obj);
     }
     return sleep_time_arr;
-};
+}
 
 module.exports.parse_sleep_time_form = parse_sleep_time_form;
 module.exports.Sleep_Time = Sleep_Time;

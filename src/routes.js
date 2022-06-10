@@ -9,7 +9,7 @@ function routes(fastify, options, done) {
         let form_key = Object.keys(request.body)[0];
         if (form_key.substring(0, 3) === "del") {
             db.delete_sleeptime(form_key.substring(4, form_key.length));
-        };
+        }
         reply.send("Thanks!");
     })
     fastify.get('/', {}, (request, reply) => {
