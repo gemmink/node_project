@@ -23,13 +23,12 @@ function test_sleeptime() {
         console.log("did not work not");
     }
 
-    /*try {
+    try {
         db.get_all_sleep_time(()=>{});
     } catch (err) {
         console.log("did not work not");
-    }*/
+    }
 }
-
 test_sleeptime();
 module.exports.test = test_sleeptime;
 

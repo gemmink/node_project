@@ -18,6 +18,7 @@ class Sleep_Time {
         this.bed_time = bed_time;
         this.wake_time = wake_time;
         this.quality = quality;
+        this.id = 0;
     }
 
     wake_time_greater() {
@@ -42,7 +43,7 @@ class Sleep_Time {
     };
 
     get str_sleeptime() {
-        return this.bed_time + " to " + this.wake_time;
+        return this.bed_time.toLocaleString() + " to " + this.wake_time.toLocaleString();
     };
 
 }
@@ -50,10 +51,12 @@ class Sleep_Time {
 function to_sleeptime_array(db_query) {
     let sleep_time_arr = [];
     for (let sql_json of db_query) {
-        sleep_time_arr.push(new Sleep_Time(
+        let sleep_obj = new Sleep_Time(
             new Date(sql_json[sql_column_map.bedtime_col]),
             new Date(sql_json[sql_column_map.wakeup_col]),
-            sql_json[sql_column_map.quality_col]));
+            sql_json[sql_column_map.quality_col]);
+        sleep_obj.id =  sql_json[sql_column_map.id_col];
+        sleep_time_arr.push(sleep_obj);
     }
     return sleep_time_arr;
 };

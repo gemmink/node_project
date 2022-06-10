@@ -1,0 +1,11 @@
+body{
+    margin:0;
+    padding:0;
+    background-color:lavenderblush;
+}
+#sleep_form{
+    padding:10px;
+}
+input {
+    padding:10px;
+}

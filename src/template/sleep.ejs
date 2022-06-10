@@ -1,5 +1,33 @@
+<head>
+        <style>
+                body{
+                        margin:0;
+                        padding:0;
+                        background-color:lavenderblush;
+                }
+                #sleep_form{
+                        padding:10px;
+                }
+                input {
+                        padding:2px;
+                        margin:5px;
+                }
+                form {display: inline;}
+
+        </style>
+        <title></title>
+</head>
+
+
+<a href="/">Go To Enter</a>
 <ul>
+
     <% sleeptime.forEach(function(sleep){ %>
-        <li><%= sleep.bed_time %></li>
+                <li><%= sleep.str_sleeptime%>
+                        <div><form id=<%= "sleep_"+sleep.id%> action="/database" method="post">
+                                <input name=<%= "del_"+sleep.id%> type="submit" value="Delete"></form>
+                        <form id=<%= "upd_"+sleep.id%> action="/database" method="post" ><input type="submit" value="Update"></form></div>
+
+                </li>
     <% }); %>
 </ul>
