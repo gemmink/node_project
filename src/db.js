@@ -1,6 +1,7 @@
 let sql = require("sqlite3");
 let db = new sql.Database("./src/sleep.db");
 let sleeptime = require("./sleeptime.js");
+
 function insert_into_db(sleep_time) {
     db.exec(`
     insert into sleep(wakeup_time, bedtime,quality) values
@@ -23,17 +24,11 @@ function get_all_sleep_time(callback) {
             if (err) {
                 callback.send("404 Error");
             }
-            let sleeptime_arr = sleeptime.to_sleeptime_array(rows);
-            console.log(sleeptime_arr);
-            callback.view('./src/template/sleep.ejs',{sleeptime:sleeptime_arr});
+            let sleeptime_array = sleeptime.to_sleeptime_array(rows);
+            callback.view('./src/template/sleep.ejs',{sleeptime:sleeptime_array});
         }
     );
 }
-function call(callback)
-{
-    callback.send('t');
-}
 module.exports.insert_into_db = insert_into_db;
 module.exports.get_all_sleep_time = get_all_sleep_time;
-module.exports.call = call;
 module.exports.delete_sleeptime = delete_sleeptime;

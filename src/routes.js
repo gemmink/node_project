@@ -10,12 +10,13 @@ function routes(fastify, options, done) {
         if (form_key.substring(0, 3) === "del") {
             db.delete_sleeptime(form_key.substring(4, form_key.length));
         }
+
         reply.send("Thanks!");
     })
-    fastify.get('/', {}, (request, reply) => {
+    fastify.get('/input', {}, (request, reply) => {
         reply.view('./src/template/sleeptime.ejs', {});
     })
-    fastify.post('/', (request, reply) => {
+    fastify.post('/input', (request, reply) => {
         db.insert_into_db(sleeptime.parse_sleep_time_form(request.body));
         reply.send("Thanks!");
     })

@@ -1,6 +1,6 @@
-let sleeptime = require("./sleeptime.js");
+let sleeptime = require("../sleeptime.js");
 let assert = require('assert');
-let db = require('./db.js');
+let db = require('../db.js');
 
 function test_sleeptime() {
     const time_1 = Date.parse('01 Jan 2020 10:00:00 GMT');
