@@ -3,25 +3,27 @@
 <html lang="">
 <head>
     <style>
-        body{
-            margin:0;
-            padding:0;
-            background-color:lavenderblush;
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: lavenderblush;
         }
-        #sleep_form{
-            padding:10px;
+
+        #sleep_form {
+            padding: 10px;
         }
+
         input {
-            padding:2px;
-            margin:5px;
+            padding: 2px;
+            margin: 5px;
         }
     </style>
     <title></title>
 </head>
 <body>
 <a href="/database">See Sleep History</a>
-<form id ="sleep_form" action="/input" method="post">
-   Bedtime: <input type="datetime-local" id="bed_time" name="bed_time" value="2022-06-01T08:30"/><br/>
+<form id="sleep_form" action="/input" method="post">
+    Bedtime: <input type="datetime-local" id="bed_time" name="bed_time" value="2022-06-01T08:30"/><br/>
     Wakeup Time: <input type="datetime-local" id="wake_time" name="wake_time" value="2022-06-01T08:30"/><br/>
     Sleep Quality: <input type="text" id="quality" name="quality"/>
     <input type="submit" value="Submit Sleep">
