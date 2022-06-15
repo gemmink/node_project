@@ -3,10 +3,15 @@ let db = new sql.Database("./src/sleep.db");
 let sleeptime = require("./sleeptime.js");
 
 function insert_into_db(sleep_time) {
+    try{
     db.exec(`
     insert into sleep(wakeup_time, bedtime,quality) values
     (${sleep_time.wake_time.valueOf()},${sleep_time.bed_time.valueOf()},${sleep_time.quality.valueOf()});
     `);
+    }
+    catch (e) {
+
+    };
 }
 function delete_sleeptime(sleeptime_id)
 {

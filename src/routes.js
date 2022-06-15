@@ -17,7 +17,10 @@ function routes(fastify, options, done) {
     fastify.post('/database', {}, (request, reply) => {
         let form_key = Object.keys(request.body)[0];
         if (form_key.substring(0, 3) === "del") {
-            db.delete_sleeptime(get_number_from_form(form_key));
+            try{
+                db.delete_sleeptime("t");
+            }
+            catch(e){reply.send("Error!");};
         }
         reply.send("Thanks!");
     })
